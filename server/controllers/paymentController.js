@@ -116,7 +116,8 @@ const verifyPayment = async (req, res) => {
 
   } catch (err) {
     console.error('[Verify] Error:', err.message)
-    res.status(500).json({ message: 'Order saving failed', error: err.message })
+    console.error('[Verify] Full error:', JSON.stringify(err.errors || err))
+    res.status(500).json({ message: 'Order saving failed', error: err.message, details: err.errors })
   }
 }
 

@@ -108,8 +108,8 @@ const Checkout = () => {
               setOrderSuccess({ orderId: verifyRes.data.orderId, paymentId: response.razorpay_payment_id })
               setStep(3)
             }
-          } catch {
-            alert('Payment verified but order saving failed.')
+          } catch (err) {
+            alert('Order saving failed: ' + (err.response?.data?.error || err.response?.data?.details || err.message || 'unknown'))
           }
         },
         modal: { ondismiss: () => setLoading(false) },
