@@ -5,6 +5,7 @@ import { AuthProvider, useAuth } from './context/AuthContext'
 import { ToastProvider, useToast } from './context/ToastContext'
 import Navbar         from './components/Navbar/Navbar'
 import Footer         from './components/Footer/Footer'
+import ScrollToTop    from './components/ScrollToTop'
 import Home           from './pages/Home'
 import Products       from './pages/Products'
 import ProductDetail  from './pages/ProductDetail'
@@ -37,6 +38,7 @@ function App() {
         <ToastProvider>
           <Router>
             <AppBridge />
+            <ScrollToTop />
             <Navbar />
             <main>
               <Routes>
