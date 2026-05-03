@@ -1,0 +1,222 @@
+.product-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-card__img-wrap {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+
+.product-card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-card__img-wrap img {
+  transform: scale(1.06);
+}
+
+.product-card__label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.product-card__label--new {
+  background: var(--primary);
+  color: #fff;
+}
+
+.product-card__label--discount {
+  background: var(--accent);
+  color: #fff;
+}
+
+.product-card__out-of-stock {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-mid);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.product-card__wishlist {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #fff;
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  opacity: 0;
+}
+
+.product-card:hover .product-card__wishlist {
+  opacity: 1;
+}
+
+.product-card__wishlist--active,
+.product-card__wishlist:hover {
+  color: var(--accent) !important;
+  opacity: 1 !important;
+}
+
+.product-card__info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.product-card__category {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.product-card__name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+
+.product-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.product-card__stars {
+  display: flex;
+  gap: 2px;
+}
+
+.product-card__stars i {
+  font-size: 0.7rem;
+}
+
+.star--filled { color: #f59e0b; }
+.star--half   { color: #f59e0b; opacity: 0.6; }
+.star--empty  { color: #d1d5db; }
+
+.product-card__reviews {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+.product-card__price-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.product-card__price {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.product-card__original {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  text-decoration: line-through;
+}
+
+.product-card__discount {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #16a34a;
+  background: #dcfce7;
+  padding: 2px 7px;
+  border-radius: 50px;
+}
+
+.product-card__add-btn {
+  margin-top: auto;
+  padding: 10px 14px;
+  border: 2px solid var(--primary);
+  border-radius: 50px;
+  background: transparent;
+  color: var(--primary);
+  font-size: 0.83rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: all var(--transition);
+  cursor: pointer;
+  font-family: var(--font);
+  width: 100%;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.product-card__add-btn span {
+  display: inline;
+}
+
+.product-card__add-btn:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.product-card__add-btn--added {
+  background: var(--success);
+  border-color: var(--success);
+  color: #fff;
+}
+
+.product-card__add-btn--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: var(--border);
+  color: var(--text-light);
+}
+
+.product-card__add-btn--disabled:hover {
+  background: transparent;
+  color: var(--text-light);
+}
