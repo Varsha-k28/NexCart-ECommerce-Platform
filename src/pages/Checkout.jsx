@@ -105,8 +105,9 @@ const Checkout = () => {
               orderData:           buildOrderData(),
             }, token)
             if (verifyRes.data.success) {
+              const finalTotal = grandTotal
               clearCart()
-              setOrderSuccess({ orderId: verifyRes.data.orderId, paymentId: response.razorpay_payment_id })
+              setOrderSuccess({ orderId: verifyRes.data.orderId, paymentId: response.razorpay_payment_id, total: finalTotal })
               setStep(3)
             }
           } catch (err) {
@@ -128,9 +129,10 @@ const Checkout = () => {
   const handleCOD = async () => {
     setLoading(true)
     try {
+      const finalTotal = grandTotal
       await placeOrder({ ...buildOrderData(), paymentMethod: 'cod' })
       clearCart()
-      setOrderSuccess({ orderId: `COD-${Date.now()}`, paymentId: null })
+      setOrderSuccess({ orderId: `COD-${Date.now()}`, paymentId: null, total: finalTotal })
       setStep(3)
     } catch (err) {
       alert(err.response?.data?.message || 'Order placement failed')
@@ -148,10 +150,11 @@ const Checkout = () => {
   const handleUPISuccess = async () => {
     setShowUPIModal(false)
     setLoading(true)
+    const finalTotal = grandTotal
     try {
       await placeOrder({ ...buildOrderData(), paymentMethod: 'upi' })
       clearCart()
-      setOrderSuccess({ orderId: `UPI-${Date.now()}`, paymentId: `upi_sim_${Date.now()}` })
+      setOrderSuccess({ orderId: `UPI-${Date.now()}`, paymentId: `upi_sim_${Date.now()}`, total: finalTotal })
       setStep(3)
     } catch (err) {
       alert(err.response?.data?.message || 'Order saving failed')
@@ -186,7 +189,7 @@ const Checkout = () => {
             )}
             <div className="checkout-success__row">
               <span>Amount Paid</span>
-              <strong className="checkout-success__amount">₹{grandTotal.toLocaleString()}</strong>
+              <strong className="checkout-success__amount">₹{(orderSuccess?.total || grandTotal).toLocaleString()}</strong>
             </div>
             <div className="checkout-success__row">
               <span>Payment</span>
