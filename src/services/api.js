@@ -35,4 +35,7 @@ export const getMyOrders       = ()      => API.get('/orders/my')
 export const getOrderById      = (id)    => API.get(`/orders/${id}`)
 
 export const createRazorpayOrder   = (amount) => API.post('/payment/create-order', { amount })
-export const verifyRazorpayPayment = (data)   => API.post('/payment/verify', data)
+export const verifyRazorpayPayment = (data, token) => {
+  const config = token ? { headers: { Authorization: `Bearer ${token}` } } : {}
+  return API.post('/payment/verify', data, config)
+}

@@ -97,12 +97,13 @@ const Checkout = () => {
         theme:  { color: '#6c63ff' },
         handler: async (response) => {
           try {
+            const token = localStorage.getItem('token')
             const verifyRes = await verifyRazorpayPayment({
               razorpay_order_id:   response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature:  response.razorpay_signature,
               orderData:           buildOrderData(),
-            })
+            }, token)
             if (verifyRes.data.success) {
               clearCart()
               setOrderSuccess({ orderId: verifyRes.data.orderId, paymentId: response.razorpay_payment_id })
