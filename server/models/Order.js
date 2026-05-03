@@ -2,8 +2,7 @@ const mongoose = require('mongoose')
 
 const orderItemSchema = new mongoose.Schema({
   product: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Product',
+    type: String,
     required: true,
   },
   name:     { type: String, required: true },
@@ -31,7 +30,7 @@ const orderSchema = new mongoose.Schema(
     },
     paymentMethod: {
       type: String,
-      enum: ['card', 'upi', 'cod', 'netbanking'],
+      enum: ['card', 'upi', 'cod', 'netbanking', 'razorpay'],
       required: true,
     },
     paymentStatus: {
