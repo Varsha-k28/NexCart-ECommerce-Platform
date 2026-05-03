@@ -57,7 +57,7 @@ const Checkout = () => {
 
   const buildOrderData = () => ({
     items: items.map(i => ({
-      product:  i.id,
+      product:  String(i.id || i.productId || ''),
       name:     i.name,
       image:    i.image,
       price:    i.price,
