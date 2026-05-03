@@ -11,6 +11,7 @@ const allowedOrigins = [
   process.env.CLIENT_URL || 'http://localhost:5173',
   'http://localhost:5173',
   'http://localhost:4173',
+  'https://nexcart-ecommerce-platform-1.onrender.com',
 ]
 
 app.use(cors({
