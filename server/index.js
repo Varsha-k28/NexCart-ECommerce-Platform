@@ -2,7 +2,6 @@ const express  = require('express')
 const mongoose = require('mongoose')
 const cors     = require('cors')
 const dotenv   = require('dotenv')
-const path     = require('path')
 
 dotenv.config()
 
@@ -37,10 +36,8 @@ app.get('/api/health', (req, res) => {
 })
 
 if (process.env.NODE_ENV === 'production') {
-  const frontendPath = path.join(__dirname, '..', 'dist')
-  app.use(express.static(frontendPath))
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(frontendPath, 'index.html'))
+  app.get('/', (req, res) => {
+    res.json({ status: 'OK', message: 'NexCart API running ✅' })
   })
 }
 
