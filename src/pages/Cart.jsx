@@ -46,7 +46,7 @@ const Cart = () => {
           </div>
 
           {items.map(item => (
-            <div key={item.id} className="cart-item">
+            <div key={item.productId} className="cart-item">
               <div className="cart-item__product">
                 <img src={item.image} alt={item.name} />
                 <div>
@@ -56,11 +56,11 @@ const Cart = () => {
               </div>
               <div className="cart-item__price">₹{item.price.toLocaleString()}</div>
               <div className="cart-item__qty">
-                <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>
+                <button onClick={() => updateQuantity(item.productId, item.quantity - 1)}>
                   <i className="fas fa-minus"></i>
                 </button>
                 <span>{item.quantity}</span>
-                <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>
+                <button onClick={() => updateQuantity(item.productId, item.quantity + 1)}>
                   <i className="fas fa-plus"></i>
                 </button>
               </div>
@@ -69,7 +69,7 @@ const Cart = () => {
               </div>
               <button
                 className="cart-item__remove"
-                onClick={() => removeFromCart(item.id)}
+                onClick={() => removeFromCart(item.productId)}
                 aria-label="Remove"
               >
                 <i className="fas fa-trash-alt"></i>

@@ -400,7 +400,7 @@ const Checkout = () => {
           <h3>Order Summary</h3>
           <div className="checkout-summary__items">
             {items.map(item => (
-              <div key={item.id} className="checkout-summary__item">
+              <div key={item.productId || item.id} className="checkout-summary__item">
                 <img src={item.image} alt={item.name} />
                 <div>
                   <p>{item.name}</p>
