@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # NexCart — MERN Stack E-Commerce Application
 
 A full-stack e-commerce web application built with the MERN stack (MongoDB, Express.js, React.js, Node.js). NexCart allows users to browse products, manage their cart, authenticate securely, and place orders with multiple payment options.
@@ -263,3 +264,7 @@ Open http://localhost:5173
 ## License
 
 This project is built for internship/educational purposes.
+=======
+# NexCart-ECommerce-Platform
+Nexcart is a full-stack MERN e-commerce platform with secure authentication, user-specific cart, responsive UI, and Razorpay payment integration (test mode).
+>>>>>>> a91f978d23860cf656b6728f6a4c05ccdbf522bf
